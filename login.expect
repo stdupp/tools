@@ -1,0 +1,14 @@
+#!/usr/bin/expect
+
+set ip [lindex $argv 0]
+set pin [exec osascript wd.js]
+
+spawn ssh pishaochen@xxx.com
+expect "*********"
+send "pishaochen${pin}\r"
+expect "#"
+send "s\r"
+expect "#"
+send "${ip}\r"
+expect "$"
+interact
