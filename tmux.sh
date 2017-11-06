@@ -2,7 +2,7 @@
 
 if [ "$#" -eq 0 ]
 then
-    echo "Usage: $0 <session> <ip-file>"
+    echo "Usage: $0 <session-name> <ip-file>"
     exit
 fi
 
@@ -10,8 +10,7 @@ s=$1
 f=$2
 c=`cat $f |wc -l`
 
-let c=c-1
-echo $c
+let c=c-2
 
 tmux new -d -s "$s"
 
@@ -28,3 +27,4 @@ do
 done
 
 tmux attach -d -t "$s"\; select-layout -t 0 tiled
+
